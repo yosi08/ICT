@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import MiniCalendar from '../components/MiniCalendar'
 import profileImg from '../assets/hero.png'
 
@@ -24,7 +25,8 @@ interface DashboardPageProps {
 
 export default function DashboardPage({ onSettingClick }: DashboardPageProps) {
   const today = 15
-  const diaryEntry = DIARY_ENTRIES[today] ?? DIARY_ENTRIES[12]
+  const [selectedDay, setSelectedDay] = useState<number>(today)
+  const diaryEntry = DIARY_ENTRIES[selectedDay]
 
   return (
     <div className="dashboard-page">
@@ -54,7 +56,8 @@ export default function DashboardPage({ onSettingClick }: DashboardPageProps) {
           year={2026}
           month={3}
           markedDays={Object.keys(DIARY_ENTRIES).map(Number)}
-          selectedDay={today}
+          selectedDay={selectedDay}
+          onSelectDay={setSelectedDay}
         />
 
         {/* Right: Diary + Todo */}
@@ -63,17 +66,24 @@ export default function DashboardPage({ onSettingClick }: DashboardPageProps) {
           <div className="section-card">
             <div className="section-header">
               <NotebookIcon />
-              <span>Diary</span>
+              <span>Diary · 3월 {selectedDay}일</span>
             </div>
-            <div className="diary-card">
-              <p className="diary-text">{diaryEntry.text}</p>
-              <div className="tag-area">
-                <p className="tag-label">AI 감정 태그</p>
-                <div className="tags">
-                  {diaryEntry.tags.map(t => <span key={t} className="tag">{t}</span>)}
+            {diaryEntry ? (
+              <div className="diary-card">
+                <p className="diary-text">{diaryEntry.text}</p>
+                <div className="tag-area">
+                  <p className="tag-label">AI 감정 태그</p>
+                  <div className="tags">
+                    {diaryEntry.tags.map(t => <span key={t} className="tag">{t}</span>)}
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="diary-empty-card">
+                <p>3월 {selectedDay}일에 대한 기록이 없어요</p>
+                <p>일기를 쓰고 AI 감정 태그를 생성해보세요</p>
+              </div>
+            )}
           </div>
 
           {/* To-Do card */}

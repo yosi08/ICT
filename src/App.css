@@ -496,6 +496,86 @@ input[type="checkbox"] { cursor: pointer; accent-color: var(--purple-dark); }
 
 .diary-empty-card p { margin: 0; }
 
+.diary-empty-clickable {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s;
+  border: 1.5px dashed #ddd;
+}
+.diary-empty-clickable:hover {
+  background: #f3f0fa;
+  border-color: var(--purple-mid);
+  color: var(--purple-dark);
+}
+
+.diary-editor-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.diary-textarea {
+  width: 100%;
+  min-height: 200px;
+  border: 1.5px solid #e0daea;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text);
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.diary-textarea:focus {
+  border-color: var(--purple-mid);
+}
+
+.diary-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.diary-btn-save,
+.diary-btn-cancel,
+.diary-btn-edit {
+  padding: 7px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.diary-btn-save {
+  background: var(--purple-mid);
+  color: #fff;
+}
+.diary-btn-save:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.diary-btn-cancel {
+  background: #f0edf8;
+  color: var(--text-muted);
+}
+.diary-btn-edit {
+  margin-top: 12px;
+  background: #f0edf8;
+  color: var(--purple-dark);
+  font-size: 12px;
+  padding: 5px 14px;
+}
+
 .only-marked-label {
   display: flex;
   align-items: center;

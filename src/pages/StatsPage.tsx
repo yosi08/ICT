@@ -12,11 +12,11 @@ const lineData = [
 ]
 
 const pieData = [
-  { name: '피곤', value: 25, color: '#e8a0b0' },
+  { name: '피곤', value: 25, color: '#a8c8e0' },
   { name: '슬픔', value: 15, color: '#c8b4d8' },
   { name: '지침', value: 20, color: '#b8d4d0' },
-  { name: '화남', value: 10, color: '#a8c8e0' },
-  { name: '행복', value: 20, color: '#d4c4e8' },
+  { name: '화남', value: 10, color: '#e8a0b0' },
+  { name: '행복', value: 20, color: '#eaf204' },
   { name: '기타', value: 10, color: '#f0e0e8' },
 ]
 
